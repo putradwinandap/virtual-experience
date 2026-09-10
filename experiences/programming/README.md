@@ -7,5 +7,6 @@ The experiences in this domain focus on recognizing failure patterns, investigat
 ## Areas
 
 - [Concurrency](concurrency/) — problems that appear when operations can overlap and interact through shared state.
+- [API & Integration](api-and-integration/) — problems that emerge across clients, services, third-party systems, retries, and uncertain network outcomes.
 
 This list reflects the areas currently instantiated in the repository, not the full scope of software engineering.
