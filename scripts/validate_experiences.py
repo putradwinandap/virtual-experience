@@ -84,6 +84,14 @@ def scenario_relative_parts(path: Path) -> tuple[str, ...] | None:
         return None
 
 
+def display_path(path: Path) -> str:
+    """Prefer repository-relative paths, but remain safe for temporary test trees."""
+    try:
+        return path.resolve().relative_to(ROOT.resolve()).as_posix()
+    except ValueError:
+        return path.as_posix()
+
+
 def validate_path_matches_metadata(data: dict[str, Any], path: Path) -> list[str]:
     """Expected scenario path: experiences/<domain>/<area>/<topic>/scenarios/<file>.md."""
     parts = scenario_relative_parts(path)
@@ -125,7 +133,7 @@ def validate_overview_chain(path: Path) -> list[str]:
     for level, overview in required:
         if not overview.is_file():
             errors.append(
-                f"missing required {level} overview: {overview.relative_to(ROOT).as_posix()}"
+                f"missing required {level} overview: {display_path(overview)}"
             )
     return errors
 
