@@ -77,7 +77,9 @@ AI-generated scenarios are illustrative by default unless a human contributor pr
 
 Contributions are welcome. You can contribute a new scenario, improve an existing experience, clarify technical reasoning, or help evolve the project itself.
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`EXPERIENCE_TEMPLATE.md`](EXPERIENCE_TEMPLATE.md).
+Start with [`CONTRIBUTING.md`](CONTRIBUTING.md). Scenario authors should also use [`EXPERIENCE_TEMPLATE.md`](EXPERIENCE_TEMPLATE.md). [`GOVERNANCE.md`](GOVERNANCE.md) explains the lightweight decision model and which project-level changes need discussion before implementation.
+
+Small corrections can go directly to a pull request. New experiences can use the Experience proposal Issue form when placement or scope needs discussion, while changes to project architecture, taxonomy rules, licensing, governance, or repository-wide behavior should start with a Project-level proposal Issue.
 
 ## Project documentation
 
@@ -86,6 +88,7 @@ Project direction and durable context live in the repository so humans and AI ag
 Start with:
 
 - [`AGENTS.md`](AGENTS.md) — rules for AI agents
+- [`GOVERNANCE.md`](GOVERNANCE.md) — maintainer responsibilities and project decision boundaries
 - [`docs/project/vision.md`](docs/project/vision.md) — vision, mission, and principles
 - [`docs/project/experience-model.md`](docs/project/experience-model.md) — how experiences are modeled
 - [`docs/project/taxonomy.md`](docs/project/taxonomy.md) — initial content taxonomy
