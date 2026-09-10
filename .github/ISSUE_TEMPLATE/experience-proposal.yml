@@ -1,0 +1,55 @@
+name: Experience proposal
+description: Propose a new scenario or materially distinct experience before writing it.
+title: "[Experience]: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form when a new experience would benefit from Topic placement, scope, provenance, or duplication discussion before implementation. Small corrections can go directly to a pull request.
+  - type: input
+    id: problem-pattern
+    attributes:
+      label: Problem pattern
+      description: What practical problem, failure, edge case, or decision should a learner experience?
+      placeholder: e.g. stale cache causes authorization data to lag behind a role change
+    validations:
+      required: true
+  - type: textarea
+    id: situation
+    attributes:
+      label: Situation and learning value
+      description: Describe what the learner would observe before the answer is known and why this is materially useful.
+    validations:
+      required: true
+  - type: input
+    id: placement
+    attributes:
+      label: Suggested Domain / Area / Topic
+      description: Use existing taxonomy where possible. It is okay to say that placement is uncertain.
+      placeholder: programming / security / broken-authorization
+  - type: dropdown
+    id: provenance
+    attributes:
+      label: Expected provenance
+      options:
+        - illustrative
+        - adapted
+        - real
+        - not sure yet
+    validations:
+      required: true
+  - type: textarea
+    id: distinction
+    attributes:
+      label: Existing-content check
+      description: What similar Topic/scenario did you find, and what makes this proposal materially different if one exists?
+    validations:
+      required: true
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: Rights and privacy
+      options:
+        - label: I will not submit secrets, private/confidential information, or third-party material I do not have the right to publish and license.
+          required: true
