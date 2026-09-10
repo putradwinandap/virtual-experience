@@ -1,25 +1,75 @@
 # Experience Scenario Template
 
-> This template is intentionally explicit while the project validates its content model. Sections may evolve as real contributions reveal what works best.
+> This template defines the MVP scenario format for Virtual Experience. The metadata block is machine-readable and is intended to be validated automatically.
 
-## Suggested file header
+## Required YAML front matter
 
-```markdown
-# Scenario title
+Every scenario must begin with YAML front matter using this minimal schema:
 
-- Topic: <topic>
-- Domain: Programming / Software Engineering
-- Category: <category>
-- Provenance: Real experience | Adapted experience | Illustrative scenario
-- Contributor: <name or GitHub handle, when applicable>
-- Difficulty: <optional for now>
+```yaml
+---
+title: "Oversold Inventory During Flash Sale"
+domain: "programming"
+area: "concurrency"
+topic: "race-condition"
+difficulty: "intermediate"
+provenance:
+  type: "illustrative"
+concepts:
+  - "race-condition"
+  - "database-transaction"
+  - "locking"
+---
 ```
 
-Do not claim `Real experience` unless a human contributor explicitly states that the scenario is based on something they encountered.
+### Required fields
 
-AI-generated scenarios must use `Illustrative scenario` by default.
+- `title` — human-readable scenario title.
+- `domain` — canonical top-level domain. MVP value: `programming`.
+- `area` — canonical area/category under the domain, such as `concurrency`.
+- `topic` — canonical primary topic, such as `race-condition`.
+- `difficulty` — one of `beginner`, `intermediate`, or `advanced`.
+- `provenance.type` — one of `real`, `adapted`, or `illustrative`.
+- `concepts` — one or more canonical related concepts/tags.
+
+### Optional contributor metadata
+
+Contributor metadata is optional because Git history already records authorship and AI-generated seed scenarios should not need a fake identity.
+
+When explicit attribution is useful:
+
+```yaml
+contributor:
+  github: "username"
+```
+
+`contributor` means the person who submitted or authored the scenario. It does **not** by itself prove that the contributor personally experienced the incident.
+
+### Provenance rules
+
+- `real` — a human contributor explicitly states that the scenario is based on something they personally encountered.
+- `adapted` — derived from real experience but generalized, anonymized, combined, or materially modified.
+- `illustrative` — intentionally constructed to teach a known class of problem or edge case.
+
+AI-generated scenarios must use `illustrative` unless a human contributor provides provenance supporting another classification.
+
+Never invent first-hand attribution, company names, incident details, or contributor identities.
+
+### Difficulty rules
+
+Difficulty measures the prerequisite reasoning needed to understand the scenario, not the severity of the incident.
+
+- `beginner` — understandable with domain fundamentals.
+- `intermediate` — requires combining multiple concepts or components.
+- `advanced` — requires significant system reasoning, trade-off analysis, concurrency/distribution/scale reasoning, or comparable domain complexity.
+
+### Canonical values
+
+Metadata values such as `domain`, `area`, `topic`, and `concepts` should use canonical kebab-case vocabulary defined by the project taxonomy. Avoid free-form variants such as `race_condition`, `Race Condition`, or `racecondition` when `race-condition` is the canonical term.
 
 ---
+
+# Scenario title
 
 ## Context
 
@@ -109,6 +159,8 @@ Optional links to relevant topics or scenarios.
 
 Before submitting, check that:
 
+- [ ] YAML front matter follows the required schema.
+- [ ] Metadata uses canonical taxonomy values.
 - [ ] The scenario teaches through a situation, not only a definition.
 - [ ] The root cause is not unnecessarily spoiled at the beginning.
 - [ ] Observable symptoms are separated from hindsight when possible.
