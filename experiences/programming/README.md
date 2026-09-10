@@ -10,5 +10,6 @@ The experiences in this domain focus on recognizing failure patterns, investigat
 - [API & Integration](api-and-integration/) — problems that emerge across clients, services, third-party systems, retries, and uncertain network outcomes.
 - [Databases](databases/) — problems shaped by persistent data, schema evolution, transactions, locking, query behavior, and production workload.
 - [Security](security/) — problems shaped by trust boundaries, identity, permissions, data exposure, and assumptions about where protection is actually enforced.
+- [Caching](caching/) — problems caused by copied or derived state becoming stale, inconsistent, or incorrectly coordinated with its source of truth.
 
 This list reflects the areas currently instantiated in the repository, not the full scope of software engineering.
