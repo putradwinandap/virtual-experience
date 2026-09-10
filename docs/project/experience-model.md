@@ -8,10 +8,12 @@ The core hierarchy is:
 
 ```text
 Domain
+├── README.md                 # Domain overview
 └── Area
+    ├── README.md             # Area overview
     └── Topic
-        ├── Topic overview
-        └── Scenarios
+        ├── README.md         # Topic overview
+        └── scenarios
             ├── Scenario A
             ├── Scenario B
             └── Scenario C
@@ -21,22 +23,63 @@ Example:
 
 ```text
 Programming
+├── Overview
 └── Concurrency
+    ├── Overview
     └── Race Condition
         ├── Overview
         └── Scenarios
             ├── Oversold inventory
-            ├── Duplicate processing
             └── Lost update
 ```
 
-## Topic vs scenario
+Every instantiated Domain, Area, and Topic must have a `README.md` overview. A node is instantiated when repository content exists at or beneath it. The rationale and structural rule are recorded in ADR 0004.
 
-A **topic** represents a reusable concept, failure class, problem family, or practical phenomenon.
+## Progressive context
 
-A **scenario** represents one concrete manifestation of that topic.
+Each layer has a different job. The hierarchy should become more concrete as the learner moves downward.
+
+### Domain — orientation
+
+A Domain answers: **Where am I?**
+
+Its overview should orient the learner to the broad world represented by the Domain, describe the kinds of practical experience that belong there, and surface Areas that actually exist in the repository.
+
+A Domain overview should not become an encyclopedia or explain individual problem solutions.
+
+### Area — problem-space map
+
+An Area answers: **What class of concerns am I exploring?**
+
+Its overview should explain the concern or problem space, why it produces meaningful practical problems, and surface Topics that actually exist beneath it.
+
+An Area overview should provide enough context to understand why its Topics belong together without duplicating their detailed explanations.
+
+### Topic — recognition model
+
+A Topic answers: **What problem pattern am I learning to recognize?**
+
+A topic represents a reusable concept, failure class, problem family, or practical phenomenon. Its overview should explain the shared mental model, useful recognition questions or patterns, and surface Scenarios that actually exist beneath it.
+
+The overview may teach enough concept to orient the learner, but should avoid unnecessarily spoiling the investigation or answer of individual scenarios.
+
+### Scenario — concrete experience
+
+A Scenario answers: **What does encountering this problem actually feel like?**
+
+A scenario represents one concrete manifestation of a Topic. It should expose the learner to a situation, observable signals, decisions, investigation, root cause, approaches, trade-offs, consequences, and takeaways as appropriate.
 
 This distinction is important. We should not create separate definitions of race condition for every contributor, but we should preserve different race-condition scenarios when their contexts and lessons differ.
+
+## Overview navigation
+
+Overview pages should list or clearly surface children that **actually exist** in the repository. They should not present aspirational or supposedly exhaustive catalogs as if those experiences are already available.
+
+For the Markdown MVP, child navigation is maintained manually. Exact headings are not mandated: the responsibility of each layer is the contract, not a rigid document template.
+
+Avoid duplication by keeping explanation at the layer where it belongs and linking downward for detail. Domain pages orient, Area pages map the concern space, Topic pages build recognition, and Scenarios provide concrete experience.
+
+Content CI enforces the deterministic structural invariant that a Scenario has its Domain, Area, and Topic overview chain. Pedagogical completeness, prose quality, useful child navigation, and unnecessary duplication remain review responsibilities.
 
 ## Scenario metadata
 
