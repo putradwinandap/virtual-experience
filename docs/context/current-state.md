@@ -1,14 +1,14 @@
 # Current State
 
-Last updated: 2026-09-10
+Last updated: 2026-09-11
 
 ## Status
 
 Virtual Experience has completed its initial repository/content foundation and is entering **Phase 2 — Community readiness**.
 
-The accepted content model has been exercised across four materially different vertical slices, passed its first evidence-based architecture review without requiring expansion, has an explicit dual-license model, and now has a lightweight contribution/governance baseline for public participation.
+The accepted content model has now been exercised across five materially different vertical slices. It passed its first evidence-based architecture review after the first four slices without requiring expansion, and the fifth slice was added using the same accepted hierarchy, metadata, overview, and validation model without introducing new architecture. The repository also has an explicit dual-license model and a lightweight contribution/governance baseline for public participation.
 
-The next evidence source should be a small external-contribution pilot rather than more speculative process or architecture work.
+The next evidence source should remain a small external-contribution pilot rather than more speculative content, process, or architecture work.
 
 ## Accepted direction
 
@@ -76,8 +76,9 @@ Important locations:
 2. Programming → API & Integration → Idempotency
 3. Programming → Databases → Unsafe Database Migration
 4. Programming → Security → Broken Authorization
+5. Programming → Caching → Cache Invalidation
 
-Together, these slices exercised the same architecture across concurrency, distributed/API behavior, database operations, and application security without requiring domain-specific schema expansion.
+The first four slices exercised the architecture across concurrency, distributed/API behavior, database operations, and application security and provided the evidence used for the first content-model review. The fifth slice extended that coverage into cached-state consistency and was implemented without requiring domain-specific schema or hierarchy expansion.
 
 ## First content-model review
 
@@ -88,6 +89,8 @@ Key conclusion: **keep the MVP content architecture as-is.**
 Validated decisions include the four-level hierarchy, required overview chain, flexible overview prose, scenario learning journey, multiple scenarios per Topic, minimal metadata, manual navigation at current scale, deterministic Content CI, the AI operating contract, and repository-first delivery.
 
 Observed friction that needs external evidence rather than immediate architecture changes includes `concepts` vocabulary drift, Topic-versus-Scenario classification for newcomers, and the human contribution workflow.
+
+The later Cache Invalidation slice remained within these accepted decisions and did not provide evidence that the architecture needs expansion.
 
 ## Licensing decision
 
