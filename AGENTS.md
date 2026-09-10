@@ -41,9 +41,10 @@ This repository is intended to be highly AI-operable. Any capable AI agent shoul
 - Roadmap: `docs/planning/roadmap.md`
 - MVP boundaries: `docs/planning/mvp.md`
 - Durable decisions: `docs/decisions/`
+- Governance and decision boundaries: `GOVERNANCE.md`
 - Contributor guide: `CONTRIBUTING.md`
 - Experience template: `EXPERIENCE_TEMPLATE.md`
-- Executable work: GitHub Issues
+- Executable work and proposal discussion: GitHub Issues
 - Change history: commits and pull requests
 
 ## Required agent workflow
@@ -53,18 +54,20 @@ Before starting work:
 1. Read this file.
 2. Read `docs/context/current-state.md`.
 3. Read the GitHub Issue for the task, if one exists.
-4. Read only the project documents relevant to the task.
-5. Inspect existing repository content before proposing changes.
+4. Read `GOVERNANCE.md` when work changes project-level rules or decision boundaries.
+5. Read only the other project documents relevant to the task.
+6. Inspect existing repository content before proposing changes.
 
 During work:
 
 1. Do not invent accepted requirements when the repository is ambiguous.
 2. Prefer the smallest coherent change that advances the project.
 3. Preserve the distinction between facts, contributor experiences, illustrative scenarios, assumptions, and editorial interpretation.
-4. Do not silently change project philosophy, taxonomy, or experience format.
+4. Do not silently change project philosophy, taxonomy, experience format, governance, licensing, or repository-wide behavior.
 5. Avoid unnecessary duplication of knowledge across documents.
 6. Keep content clear enough for newcomers while retaining technical accuracy.
 7. Never fabricate attribution, contributor identity, production incidents, metrics, company names, or claims of first-hand experience.
+8. Treat AI output as assistance: the human contributor remains responsible for rights, provenance, privacy/confidentiality, and submitted claims.
 
 Before finishing work:
 
@@ -128,7 +131,10 @@ The topic represents the concept. Scenarios represent concrete manifestations of
 ## Git and task rules
 
 - One Issue should describe one coherent outcome whenever practical.
+- Small corrections do not require a pre-existing Issue.
+- Project-level changes defined by `GOVERNANCE.md` require Issue-first discussion before implementation.
 - Branches should be task-scoped when branches are used.
 - Pull requests should reference their Issue when applicable.
+- Pull requests are the normal path into `main`.
 - Do not mix unrelated cleanup with feature/content work.
 - Do not consider generated content complete until it has been checked against the repository's content and provenance rules.
