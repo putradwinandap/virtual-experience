@@ -4,9 +4,11 @@ Last updated: 2026-09-10
 
 ## Status
 
-Virtual Experience is in **Phase 0 — Foundation**, with the content model now being exercised through real repository vertical slices.
+Virtual Experience is in **Phase 0 — Foundation**, with the accepted content model now exercised across multiple materially different repository vertical slices.
 
-The repository has a defined Domain → Area → Topic → Scenario content model, accepted MVP scenario metadata, hierarchical overview rules, deterministic Content CI enforcement, and completed seed topics for Race Condition, Idempotency, and Unsafe Database Migration. The current content expansion is Broken Authorization under Security.
+The repository has a defined Domain → Area → Topic → Scenario content model, accepted MVP scenario metadata, hierarchical overview rules, deterministic Content CI enforcement, and completed seed topics for Race Condition, Idempotency, Unsafe Database Migration, and Broken Authorization.
+
+There is currently no active implementation issue. The next milestone is to review what the first four vertical slices have taught us before expanding the model or adding more structure.
 
 ## Accepted direction
 
@@ -52,13 +54,22 @@ Important locations:
 - GitHub Issues — executable units of work
 - Git history — implementation/change history
 
+## Completed seed vertical slices
+
+1. Programming → Concurrency → Race Condition
+2. Programming → API & Integration → Idempotency
+3. Programming → Databases → Unsafe Database Migration
+4. Programming → Security → Broken Authorization
+
+Together, these slices have exercised the same repository/content architecture across concurrency, distributed/API behavior, database operations, and application security without requiring domain-specific schema expansion.
+
 ## Current priorities
 
-1. Exercise the accepted content model with additional materially different vertical slices rather than expanding the schema speculatively.
-2. Complete Issue #11: add Security and Broken Authorization overviews plus two materially distinct illustrative authorization scenarios.
-3. Review the content model after several topics expose enough concrete authoring and navigation friction to justify changes.
-4. Refine validator strictness only when real content exposes a concrete need.
-5. Choose a license appropriate for a repository centered on contributed written content plus supporting code/tooling.
+1. Review the content model after four materially different vertical slices and capture concrete friction, repeated patterns, or missing capabilities before changing the schema.
+2. Decide the next MVP milestone based on that review rather than adding another seed topic by default.
+3. Refine validator strictness only when existing content or contribution workflows expose a concrete need.
+4. Choose a license appropriate for a repository centered on contributed written content plus supporting code/tooling.
+5. Prepare the repository for broader sharing and external contribution without weakening the repository-first, reviewed-source-of-truth model.
 
 ## Known open questions
 
@@ -68,6 +79,7 @@ Important locations:
 - Which metadata additions, if any, become justified after real contributions exist?
 - How strict should Markdown section validation become after more seed scenarios exercise the learning model?
 - When, if ever, should manually maintained overview child navigation become generated navigation?
+- What contribution, review, or repository-governance friction becomes visible once people outside the initial maintainer workflow begin contributing?
 
 ## Recent durable decisions
 
