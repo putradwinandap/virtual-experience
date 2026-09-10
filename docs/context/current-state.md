@@ -4,11 +4,11 @@ Last updated: 2026-09-10
 
 ## Status
 
-Virtual Experience is in **Phase 0 — Foundation**. The accepted content model has now been exercised across four materially different repository vertical slices and completed its first evidence-based architecture review.
+Virtual Experience is in **Phase 0 — Foundation**. The accepted content model has been exercised across four materially different repository vertical slices, completed its first evidence-based architecture review, and now has an explicit licensing model for broader reuse and contribution.
 
-The review found no evidence that justifies changing the Domain → Area → Topic → Scenario hierarchy, required scenario metadata, overview-page model, deterministic Content CI boundary, or repository-first MVP architecture.
+The architecture review found no evidence that justifies changing the Domain → Area → Topic → Scenario hierarchy, required scenario metadata, overview-page model, deterministic Content CI boundary, or repository-first MVP architecture.
 
-The project is ready to shift its next evidence source from internally produced seed content toward broader sharing and external contribution.
+The repository now uses CC BY 4.0 for written educational content/documentation and Apache-2.0 for software/tooling. The project can move from licensing ambiguity toward contribution/governance readiness and external-contribution evidence.
 
 ## Accepted direction
 
@@ -34,6 +34,10 @@ The project is ready to shift its next evidence source from internally produced 
 - Experience metadata, path rules, and required overview chain are enforced by a repository-owned Python validator
 - GitHub Actions runs validator tests and experience validation on relevant pull requests
 - Content CI remains deterministic; semantic truth, provenance truthfulness, overview/navigation quality, and pedagogical quality remain review responsibilities
+- Written educational content and documentation are licensed under **CC BY 4.0**
+- Software, validation tooling, tests, and repository automation are licensed under **Apache-2.0**
+- Incoming contributions use the applicable repository license without an additional CLA/DCO at this stage
+- License attribution and scenario provenance remain distinct concepts
 - Dedicated web platform remains deferred until repository/content limitations justify it
 - Repository documentation is the durable project memory for human and AI contributors
 
@@ -43,8 +47,11 @@ Important locations:
 
 - `AGENTS.md` — AI operating contract
 - `README.md` — public project overview
+- `LICENSE.md` — canonical licensing scope map
+- `LICENSE-CONTENT` — CC BY 4.0 content-license notice/reference
+- `LICENSE-CODE` — Apache-2.0 software license text
 - `EXPERIENCE_TEMPLATE.md` — canonical scenario authoring/schema reference
-- `CONTRIBUTING.md` — contribution and local validation guidance
+- `CONTRIBUTING.md` — contribution, licensing, and local validation guidance
 - `scripts/validate_experiences.py` — executable scenario and hierarchy validation rules
 - `.github/workflows/content-ci.yml` — automated pull-request quality gate
 - `docs/project/` — stable project concepts and taxonomy
@@ -74,21 +81,30 @@ Validated decisions include the four-level hierarchy, required overview chain, f
 
 Observed friction that needs external evidence rather than immediate architecture changes includes `concepts` vocabulary drift, Topic-versus-Scenario classification for newcomers, and the human contribution workflow.
 
+## Licensing decision
+
+ADR 0005 establishes a dual-license repository model:
+
+- CC BY 4.0 for written educational content and documentation;
+- Apache-2.0 for software/tooling and repository automation.
+
+`LICENSE.md` defines the path/material scope. Contributors intentionally submitting material for inclusion use the applicable license. No CLA or DCO is required at the current stage.
+
+Third-party material is not automatically relicensed, and copyright/license attribution must not be confused with `real`, `adapted`, or `illustrative` scenario provenance.
+
 ## Current priorities
 
-1. Resolve the repository licensing model before actively encouraging broader reuse and contribution.
-2. Prepare the repository contribution/governance baseline for public participation without adding unnecessary process.
-3. Run a small external-contribution pilot and capture concrete contributor friction as the next evidence source.
-4. Refine taxonomy, validator, navigation, or authoring guidance only when that evidence demonstrates a recurring need.
-5. Revisit the content model only after meaningful new evidence accumulates rather than after an arbitrary number of additional Topics.
+1. Prepare the repository contribution/governance baseline for public participation without adding unnecessary process.
+2. Run a small external-contribution pilot and capture concrete contributor friction as the next evidence source.
+3. Refine taxonomy, validator, navigation, licensing guidance, or authoring guidance only when that evidence demonstrates a recurring need.
+4. Revisit the content model only after meaningful new evidence accumulates rather than after an arbitrary number of additional Topics.
 
 ## Known open questions
 
-- Which license model best fits contributed written content and future supporting software/tooling?
 - How should real experiences be anonymized without removing useful context?
 - When does a scenario deserve its own Topic versus belonging under an existing Topic, especially for independent contributors?
 - Will `concepts` remain coherent as multiple contributors introduce vocabulary?
-- What contribution, review, or repository-governance friction becomes visible once people outside the initial maintainer workflow begin contributing?
+- What contribution, review, repository-governance, or licensing friction becomes visible once people outside the initial maintainer workflow begin contributing?
 - When does repository content volume create enough navigation/discovery pressure to justify generated tooling or a dedicated interface?
 
 ## Recent durable decisions
@@ -98,6 +114,7 @@ Observed friction that needs external evidence rather than immediate architectur
 - ADR 0003 — minimal YAML front matter for scenario metadata
 - ADR 0004 — hierarchical overview pages for instantiated Domain, Area, and Topic nodes
 - MVP content-model review — no architecture change justified after the first four vertical slices
+- ADR 0005 — dual-license written content under CC BY 4.0 and software/tooling under Apache-2.0
 
 ## Maintenance rule
 
