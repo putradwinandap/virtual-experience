@@ -4,6 +4,17 @@ Thanks for helping build a shared library of practical exposure.
 
 Virtual Experience is not only a collection of technical explanations. Contributions should help someone recognize, reason about, or prepare for situations they may later encounter in practice.
 
+## Start here
+
+Choose the smallest path that fits your contribution:
+
+- **Small correction** — typo, broken link, precise technical correction, or small clarity improvement: a direct pull request is fine.
+- **New experience/scenario** — search existing Topics and scenarios first. Open an Experience proposal Issue when placement, duplication, provenance, or scope would benefit from discussion; otherwise a well-scoped PR may proceed directly.
+- **Tooling/documentation change** — a small fix can go directly to a PR. Open an Issue first when behavior or scope is not obvious.
+- **Project-level change** — changes to philosophy, content architecture, taxonomy rules, licensing, contribution/governance rules, or repository-wide behavior must start with a Project-level proposal Issue before implementation.
+
+The goal is not to require an Issue for every edit. Issues are for coordination and decisions; pull requests are for reviewable changes.
+
 ## Ways to contribute
 
 You can contribute by:
@@ -15,7 +26,7 @@ You can contribute by:
 - improving clarity or accessibility
 - proposing taxonomy improvements
 - helping review scenarios
-- improving project documentation
+- improving project documentation or tooling
 
 ## Before contributing a scenario
 
@@ -23,6 +34,7 @@ You can contribute by:
 2. Check whether a similar scenario already exists.
 3. If the same concept exists but your situation has materially different context, symptoms, decisions, trade-offs, or consequences, it can still be valuable as a separate scenario.
 4. Use [`EXPERIENCE_TEMPLATE.md`](EXPERIENCE_TEMPLATE.md) as the starting point.
+5. If you are unsure where the scenario belongs, use the Experience proposal Issue form before writing the full contribution.
 
 ## Provenance
 
@@ -89,9 +101,9 @@ If a solution depends on a database, framework, runtime, architecture, traffic p
 
 A practical scenario can have multiple reasonable solutions. Explain trade-offs instead of forcing a universal answer when one does not exist.
 
-## Validate your scenario locally
+## Validate relevant changes locally
 
-Scenario structure and metadata are checked by the repository-owned validator. Run the same checks locally before opening a pull request.
+Scenario structure and metadata are checked by the repository-owned validator. Run the same checks locally before opening a pull request that changes experiences, the schema/taxonomy, validator, or related tooling.
 
 Requires Python 3.12+.
 
@@ -109,23 +121,28 @@ python scripts/validate_experiences.py experiences/programming/concurrency/race-
 
 The validator checks the accepted YAML metadata contract, canonical domain/area values, kebab-case taxonomy identifiers, provenance and difficulty vocabularies, scenario path consistency, and basic Markdown presence. It intentionally does not judge whether a personal experience is true or whether the content is pedagogically excellent; those remain review responsibilities.
 
-## Contribution workflow
+Documentation-only changes outside the Content CI path filters may correctly have no Content CI run.
 
-Contributions should go through pull requests so automated checks and review happen before content becomes canonical:
+## Pull request contract
 
-1. Create or identify an Issue when the contribution is substantial or needs discussion.
+Contributions should go through pull requests so review happens before content becomes canonical:
+
+1. Create or identify an Issue when the contribution needs coordination or prior project-level discussion.
 2. Create a task-scoped branch in your fork or working repository.
 3. Make one coherent change and keep unrelated cleanup separate.
-4. Run the local validation commands above.
-5. Open a pull request into `main` explaining what experience or project problem the change adds or improves.
-6. Wait for Content CI when the changed paths trigger it, and respond to technical/content review.
-7. Merge only after required review/checks are satisfied.
+4. Run relevant local validation.
+5. Open a pull request into `main`, link the Issue when applicable, and explain the outcome being added or improved.
+6. Complete the repository pull-request checklist honestly.
+7. Wait for automated checks when the changed paths trigger them and respond to technical/content review.
+8. Merge only after required review/checks are satisfied.
 
 Do not treat direct changes to `main` as the normal contribution path.
 
+Automated checks establish deterministic repository constraints only. Reviewers and contributors remain responsible for technical accuracy, provenance honesty, privacy/confidentiality, learning value, and whether submitted material can legally be published.
+
 ## AI-assisted contributions
 
-AI assistance is welcome for drafting, editing, research support, organization, or review.
+AI assistance is welcome for drafting, editing, research support, organization, implementation, or review.
 
 The contributor remains responsible for:
 
@@ -135,14 +152,20 @@ The contributor remains responsible for:
 - whether they have the right to publish and license the material
 - reviewing generated claims before submission
 
-AI should amplify experience, not fabricate it.
+AI should amplify experience, not fabricate it. Accepted durable decisions must be written into repository source-of-truth artifacts rather than left only in AI/chat context.
 
 ## Project-level contributions
 
-If you are changing the content model, taxonomy, contribution rules, licensing model, or project philosophy, read [`AGENTS.md`](AGENTS.md) and the relevant documents under `docs/` first.
+If you are changing the content model, taxonomy rules, contribution/governance rules, licensing model, project philosophy, or repository-wide behavior, read [`AGENTS.md`](AGENTS.md), [`GOVERNANCE.md`](GOVERNANCE.md), and the relevant documents under `docs/` first.
 
-Durable project decisions should be documented rather than existing only in a pull-request conversation.
+Open a Project-level proposal Issue before implementation. Durable project decisions should be documented rather than existing only in an Issue or pull-request conversation. Existing ADRs are historical; a changed decision should supersede the previous record rather than silently rewriting it.
+
+## Governance and conduct
+
+[`GOVERNANCE.md`](GOVERNANCE.md) defines the current lightweight decision model, maintainer responsibilities, `main` branch collaboration contract, and how governance should evolve from evidence.
+
+The project expects respectful, constructive, professional collaboration. A formal Code of Conduct is deferred until the project can pair a recognized standard with a real reporting path and enforcement owner; see `GOVERNANCE.md` for the rationale.
 
 ## Current status
 
-Virtual Experience is early-stage. Constructive proposals are welcome, and some conventions are intentionally still being validated through real contributions.
+Virtual Experience is early-stage. The repository is preparing for a small external-contribution pilot. Constructive proposals are welcome, and additional process should be added only when real contributor evidence shows a recurring need.

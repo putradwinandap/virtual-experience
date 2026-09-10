@@ -1,0 +1,44 @@
+name: Project-level proposal
+description: Propose a durable change to project architecture, taxonomy rules, governance, licensing, or repository-wide behavior.
+title: "[Proposal]: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Project-level changes should be discussed before implementation. Existing accepted behavior remains the default until evidence justifies a change.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What concrete problem or recurring friction does the current project model create?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: What repository evidence, contributor experience, or repeated failure supports changing the current behavior?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the smallest durable change that would address the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives and trade-offs
+      description: What simpler alternatives exist, including keeping the current behavior?
+    validations:
+      required: true
+  - type: checkboxes
+    id: source-of-truth
+    attributes:
+      label: Source-of-truth awareness
+      options:
+        - label: I reviewed AGENTS.md, docs/context/current-state.md, and the relevant project/decision documents before proposing this change.
+          required: true

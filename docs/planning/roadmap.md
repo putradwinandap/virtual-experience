@@ -13,40 +13,40 @@ Goal: make the repository understandable and operable by both humans and AI agen
 - [x] Define initial experience model
 - [x] Define initial taxonomy
 - [x] Define MVP boundaries
-- [ ] Finalize experience template
-- [ ] Finalize contribution guide
-- [ ] Choose open-source license
-- [ ] Establish initial GitHub Issue backlog
+- [x] Establish an experience template and executable metadata contract
+- [x] Establish initial contribution guidance
+- [x] Choose repository licensing model
+- [x] Establish an initial GitHub Issue-driven workflow/backlog
 
 ## Phase 1 — Seed experiences
 
 Goal: prove the content format with actual scenarios.
 
-Candidate seed topics:
+Completed seed Topics:
 
 - race condition
 - payment retry / idempotency
 - unsafe database migration
 - broken authorization
-- accidental force push
-- N+1 query
-- flaky tests
-- cache stampede
 
-Important validation target: at least one topic should contain multiple materially different scenarios.
+The seed set includes multiple materially different scenarios under Topics and exercises the accepted model across concurrency, API/integration behavior, databases, and security.
+
+The first evidence-based content-model review concluded that no architecture change is currently justified.
 
 ## Phase 2 — Community readiness
 
 Goal: make contributing understandable and low-friction.
 
-Potential work:
+Current direction:
 
-- refine contribution workflow from real contributor feedback
-- add issue/PR templates if useful
-- define scenario metadata only after learning what is needed
-- add content review checklist
-- improve navigation/indexing
-- document anonymization and privacy guidance for real experiences
+- establish a lightweight contribution/governance baseline
+- provide focused Issue and pull-request entry points without requiring an Issue for every edit
+- keep Content CI deterministic and distinguish automated validation from human review responsibility
+- run a small external-contribution pilot
+- capture real contributor friction before adding more process
+- refine anonymization/privacy guidance, taxonomy guidance, review checklists, or navigation only when pilot evidence demonstrates a recurring need
+
+Do not add contributor bureaucracy merely to look mature. Community process should grow from observed participation.
 
 ## Phase 3 — Validate demand
 
