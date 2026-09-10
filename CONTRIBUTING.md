@@ -46,6 +46,23 @@ When sharing a real experience, anonymize details that are not necessary for the
 
 If anonymization substantially changes the scenario, classify it as an adapted experience.
 
+## Licensing your contribution
+
+Virtual Experience uses different standard licenses for written content and software/tooling. See [`LICENSE.md`](LICENSE.md) for the canonical scope map.
+
+By intentionally submitting a contribution for inclusion in the repository, you agree to license the submitted material under the license that applies to the material/path you are changing:
+
+- written educational content and documentation: **CC BY 4.0**;
+- software, validation tooling, tests, and repository automation: **Apache-2.0**.
+
+A pull request that changes both kinds of material can therefore contain material under both licenses.
+
+Only submit material that you have the right to license on these terms. Publicly visible material is not automatically free to copy. Be especially careful with third-party text, screenshots, images, proprietary code, datasets, trademarks, and incident reports.
+
+No Contributor License Agreement (CLA) or Developer Certificate of Origin (DCO) sign-off is required at this stage.
+
+License attribution and scenario provenance are separate. Being named as an author or contributor does not by itself mean you personally experienced the scenario, and choosing `real`, `adapted`, or `illustrative` does not establish copyright ownership.
+
 ## Writing a useful scenario
 
 Try to preserve what the problem looked like **before the answer was known**.
@@ -101,7 +118,7 @@ Contributions should go through pull requests so automated checks and review hap
 3. Make one coherent change and keep unrelated cleanup separate.
 4. Run the local validation commands above.
 5. Open a pull request into `main` explaining what experience or project problem the change adds or improves.
-6. Wait for Content CI and respond to technical/content review.
+6. Wait for Content CI when the changed paths trigger it, and respond to technical/content review.
 7. Merge only after required review/checks are satisfied.
 
 Do not treat direct changes to `main` as the normal contribution path.
@@ -115,14 +132,14 @@ The contributor remains responsible for:
 - provenance
 - technical accuracy
 - privacy/confidentiality
-- whether they have the right to publish the material
+- whether they have the right to publish and license the material
 - reviewing generated claims before submission
 
 AI should amplify experience, not fabricate it.
 
 ## Project-level contributions
 
-If you are changing the content model, taxonomy, contribution rules, or project philosophy, read [`AGENTS.md`](AGENTS.md) and the relevant documents under `docs/` first.
+If you are changing the content model, taxonomy, contribution rules, licensing model, or project philosophy, read [`AGENTS.md`](AGENTS.md) and the relevant documents under `docs/` first.
 
 Durable project decisions should be documented rather than existing only in a pull-request conversation.
 
