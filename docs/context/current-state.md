@@ -4,9 +4,9 @@ Last updated: 2026-09-10
 
 ## Status
 
-Virtual Experience is in **Phase 0 — Foundation**.
+Virtual Experience is in **Phase 0 — Foundation**, with the content model now being exercised through real repository vertical slices.
 
-The repository now has a defined Domain → Area → Topic → Scenario content model, accepted MVP scenario metadata, hierarchical overview rules, and deterministic Content CI enforcement. The next vertical slice is to exercise that foundation with the first race-condition topic and seed scenarios.
+The repository has a defined Domain → Area → Topic → Scenario content model, accepted MVP scenario metadata, hierarchical overview rules, deterministic Content CI enforcement, and a completed Race Condition seed topic with two materially different illustrative scenarios. The current content expansion is Idempotency under API & Integration.
 
 ## Accepted direction
 
@@ -54,11 +54,12 @@ Important locations:
 
 ## Current priorities
 
-1. Complete Issue #6 and establish hierarchical overview pages as an enforced content invariant.
-2. Resume Issue #2: add Programming, Concurrency, and Race Condition overviews plus at least two materially distinct illustrative race-condition scenarios.
-3. Use that vertical slice to validate the full Domain → Area → Topic → Scenario learning/navigation model and Content CI against real repository content.
-4. Refine validator strictness only when real content exposes a concrete need.
-5. Choose a license appropriate for a repository centered on contributed written content plus supporting code/tooling.
+1. Exercise the accepted content model with additional materially different vertical slices rather than expanding the schema speculatively.
+2. Complete Issue #9: add API & Integration and Idempotency overviews plus two materially distinct illustrative idempotency scenarios.
+3. Continue with the planned Unsafe Database Migration and Broken Authorization seed topics to test the model across different engineering areas.
+4. Review the content model after several topics expose enough concrete authoring and navigation friction to justify changes.
+5. Refine validator strictness only when real content exposes a concrete need.
+6. Choose a license appropriate for a repository centered on contributed written content plus supporting code/tooling.
 
 ## Known open questions
 
@@ -66,7 +67,7 @@ Important locations:
 - How should real experiences be anonymized without removing useful context?
 - When does a scenario deserve its own topic versus belonging under an existing topic?
 - Which metadata additions, if any, become justified after real contributions exist?
-- How strict should Markdown section validation become after the first seed scenarios exercise the learning model?
+- How strict should Markdown section validation become after more seed scenarios exercise the learning model?
 - When, if ever, should manually maintained overview child navigation become generated navigation?
 
 ## Recent durable decisions
