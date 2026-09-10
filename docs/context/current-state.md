@@ -6,7 +6,7 @@ Last updated: 2026-09-10
 
 Virtual Experience is in **Phase 0 — Foundation**.
 
-The repository is the durable source of truth for the project. The core content model and MVP scenario metadata format are now defined; automated enforcement is the next foundation step.
+The repository now has a defined content model, accepted MVP scenario metadata, and deterministic Content CI enforcement. The next vertical slice is to exercise that foundation with the first real topic and seed scenarios.
 
 ## Accepted direction
 
@@ -24,6 +24,9 @@ The repository is the durable source of truth for the project. The core content 
 - Explicit `contributor.github` metadata is optional; Git history remains the baseline authorship record
 - Difficulty vocabulary: `beginner`, `intermediate`, `advanced`, measuring prerequisite reasoning rather than incident severity
 - Canonical taxonomy identifiers use lowercase kebab-case
+- Experience metadata and path rules are enforced by a repository-owned Python validator
+- GitHub Actions runs validator tests and experience validation on relevant pull requests
+- Content CI is deterministic; semantic truth, provenance truthfulness, and pedagogical quality remain review responsibilities
 - Dedicated web platform is intentionally deferred until repository/content limitations justify it
 - Repository documentation is the durable project memory for human and AI contributors
 
@@ -34,7 +37,9 @@ Important locations:
 - `AGENTS.md` — AI operating contract
 - `README.md` — public project overview
 - `EXPERIENCE_TEMPLATE.md` — canonical scenario authoring/schema reference
-- `CONTRIBUTING.md` — contribution guidance
+- `CONTRIBUTING.md` — contribution and local validation guidance
+- `scripts/validate_experiences.py` — executable scenario validation rules
+- `.github/workflows/content-ci.yml` — automated pull-request quality gate
 - `docs/project/` — stable project concepts and taxonomy
 - `docs/planning/` — MVP and roadmap
 - `docs/decisions/` — durable decisions and rationale
@@ -44,9 +49,9 @@ Important locations:
 
 ## Current priorities
 
-1. Implement Issue #3: repository-owned experience validator and Content CI based on the accepted YAML schema.
-2. Add the first seed topic and scenarios in Issue #2, starting with race condition.
-3. Use the first vertical slice to validate whether the scenario format feels like practical exposure rather than a tutorial.
+1. Implement Issue #2: add the first race-condition topic and at least two materially distinct illustrative scenarios.
+2. Use that vertical slice to validate both the scenario learning model and Content CI against real repository content.
+3. Refine validator strictness only when real content exposes a concrete need.
 4. Choose a license appropriate for a repository centered on contributed written content plus supporting code/tooling.
 5. Improve contribution/review automation only where actual usage demonstrates value.
 
@@ -56,7 +61,7 @@ Important locations:
 - How should real experiences be anonymized without removing useful context?
 - When does a scenario deserve its own topic versus belonging under an existing topic?
 - Which metadata additions, if any, become justified after real contributions exist?
-- How strict should required Markdown section validation be, given that the learning journey is intentionally not an immutable heading list?
+- How strict should Markdown section validation become after the first seed scenarios exercise the learning model?
 
 ## Recent durable decisions
 

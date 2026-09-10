@@ -72,17 +72,39 @@ If a solution depends on a database, framework, runtime, architecture, traffic p
 
 A practical scenario can have multiple reasonable solutions. Explain trade-offs instead of forcing a universal answer when one does not exist.
 
+## Validate your scenario locally
+
+Scenario structure and metadata are checked by the repository-owned validator. Run the same checks locally before opening a pull request.
+
+Requires Python 3.12+.
+
+```bash
+python -m pip install -r requirements-dev.txt
+python -m unittest discover -s tests -p "test_*.py" -v
+python scripts/validate_experiences.py
+```
+
+You can also validate one or more specific scenario files:
+
+```bash
+python scripts/validate_experiences.py experiences/programming/concurrency/race-condition/scenarios/oversold-inventory.md
+```
+
+The validator checks the accepted YAML metadata contract, canonical domain/area values, kebab-case taxonomy identifiers, provenance and difficulty vocabularies, scenario path consistency, and basic Markdown presence. It intentionally does not judge whether a personal experience is true or whether the content is pedagogically excellent; those remain review responsibilities.
+
 ## Contribution workflow
 
-For now, use the normal GitHub workflow:
+Contributions should go through pull requests so automated checks and review happen before content becomes canonical:
 
 1. Create or identify an Issue when the contribution is substantial or needs discussion.
-2. Make one coherent change.
-3. Keep unrelated cleanup separate.
-4. Open a pull request explaining what experience or project problem the change adds or improves.
-5. Respond to technical/content review.
+2. Create a task-scoped branch in your fork or working repository.
+3. Make one coherent change and keep unrelated cleanup separate.
+4. Run the local validation commands above.
+5. Open a pull request into `main` explaining what experience or project problem the change adds or improves.
+6. Wait for Content CI and respond to technical/content review.
+7. Merge only after required review/checks are satisfied.
 
-This workflow may evolve as the community grows.
+Do not treat direct changes to `main` as the normal contribution path.
 
 ## AI-assisted contributions
 
