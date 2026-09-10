@@ -96,4 +96,11 @@ Start with:
 
 ## License
 
-A license has not been selected yet. See the current project state for this unresolved decision.
+Virtual Experience uses a dual-license model:
+
+- written educational content and documentation are licensed under **Creative Commons Attribution 4.0 International (CC BY 4.0)**;
+- software, validation tooling, tests, and repository automation are licensed under the **Apache License 2.0**.
+
+See [`LICENSE.md`](LICENSE.md) for the exact scope and [`LICENSE-CONTENT`](LICENSE-CONTENT) / [`LICENSE-CODE`](LICENSE-CODE) for the applicable license terms.
+
+License attribution is separate from scenario provenance: attribution does not mean that an author personally experienced the incident described.
