@@ -8,7 +8,7 @@ The core hierarchy is:
 
 ```text
 Domain
-└── Category
+└── Area
     └── Topic
         ├── Topic overview
         └── Scenarios
@@ -37,6 +37,26 @@ A **topic** represents a reusable concept, failure class, problem family, or pra
 A **scenario** represents one concrete manifestation of that topic.
 
 This distinction is important. We should not create separate definitions of race condition for every contributor, but we should preserve different race-condition scenarios when their contexts and lessons differ.
+
+## Scenario metadata
+
+Scenario files use YAML front matter so metadata remains readable by humans and deterministic for validators, indexing, and future tooling.
+
+The MVP required fields are:
+
+- `title`
+- `domain`
+- `area`
+- `topic`
+- `difficulty`
+- `provenance.type`
+- `concepts`
+
+Explicit `contributor.github` attribution is optional. Git history remains the baseline authorship record.
+
+The canonical schema and copyable example live in `EXPERIENCE_TEMPLATE.md`. Durable rationale is recorded in ADR 0003.
+
+Metadata intentionally does not include IDs, versions, timestamps, company names, severity, estimated time, or AI-generation flags in the MVP. These should only be added when real product needs justify them.
 
 ## Scenario learning journey
 
@@ -68,41 +88,48 @@ This is a learning model, not an immutable Markdown heading list. Some scenarios
 
 ## Scenario provenance
 
-Every scenario must clearly communicate provenance.
+Every scenario must clearly communicate provenance through `provenance.type`.
 
-### Real experience
+### `real`
 
-The contributor states that the scenario is based on something they actually encountered.
+A human contributor explicitly states that the scenario is based on something they personally encountered.
 
 It may still be anonymized for privacy, confidentiality, or security.
 
-### Adapted experience
+### `adapted`
 
 The scenario derives from real experience but has been generalized, combined, anonymized, or otherwise modified enough that it should not be presented as a literal incident report.
 
-### Illustrative scenario
+### `illustrative`
 
 The scenario is intentionally constructed to demonstrate a known problem or edge case.
 
-AI-generated scenarios default to this classification.
+AI-generated scenarios default to this classification unless a human provides provenance supporting another classification.
 
 ## Attribution
 
-Attribution should describe who contributed a scenario, not imply facts we cannot verify.
+Attribution describes who contributed or authored a scenario; it must not imply facts we cannot verify.
 
-A topic can contain scenarios from multiple contributors.
+`contributor.github` is optional because Git history already records authorship and illustrative AI-assisted scenarios should not invent an identity.
 
-Example conceptual presentation:
+A contributor identity and provenance answer different questions:
 
-```text
-Race Condition
+- contributor: who submitted or authored this content?
+- provenance: what claim are we making about the scenario's relationship to real experience?
 
-- Scenario: Oversold inventory — contributed by Alice
-- Scenario: Duplicate payment processing — contributed by Bob
-- Scenario: Lost update — illustrative
-```
+A contributor may submit `real`, `adapted`, or `illustrative` content. The contributor field alone never proves first-hand experience.
 
-The exact metadata format remains an MVP implementation decision.
+## Difficulty
+
+Difficulty measures prerequisite reasoning needed to understand a scenario, not incident severity.
+
+- `beginner` — understandable with domain fundamentals.
+- `intermediate` — requires combining multiple concepts or components.
+- `advanced` — requires significant system reasoning, trade-off analysis, concurrency/distribution/scale reasoning, or comparable domain complexity.
+
+## Canonical taxonomy values
+
+`domain`, `area`, `topic`, and `concepts` use canonical kebab-case vocabulary maintained by the project taxonomy. A scenario has one primary domain/area/topic home while `concepts` can represent relevant cross-cutting concepts without duplicating the scenario into multiple directories.
 
 ## Duplicate scenarios
 
