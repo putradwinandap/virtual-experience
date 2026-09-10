@@ -4,11 +4,11 @@ Last updated: 2026-09-10
 
 ## Status
 
-Virtual Experience is in **Phase 0 — Foundation**, with the accepted content model now exercised across multiple materially different repository vertical slices.
+Virtual Experience is in **Phase 0 — Foundation**. The accepted content model has now been exercised across four materially different repository vertical slices and completed its first evidence-based architecture review.
 
-The repository has a defined Domain → Area → Topic → Scenario content model, accepted MVP scenario metadata, hierarchical overview rules, deterministic Content CI enforcement, and completed seed topics for Race Condition, Idempotency, Unsafe Database Migration, and Broken Authorization.
+The review found no evidence that justifies changing the Domain → Area → Topic → Scenario hierarchy, required scenario metadata, overview-page model, deterministic Content CI boundary, or repository-first MVP architecture.
 
-There is currently no active implementation issue. The next milestone is to review what the first four vertical slices have taught us before expanding the model or adding more structure.
+The project is ready to shift its next evidence source from internally produced seed content toward broader sharing and external contribution.
 
 ## Accepted direction
 
@@ -33,8 +33,8 @@ There is currently no active implementation issue. The next milestone is to revi
 - Canonical taxonomy identifiers use lowercase kebab-case
 - Experience metadata, path rules, and required overview chain are enforced by a repository-owned Python validator
 - GitHub Actions runs validator tests and experience validation on relevant pull requests
-- Content CI is deterministic; semantic truth, provenance truthfulness, overview quality/navigation quality, and pedagogical quality remain review responsibilities
-- Dedicated web platform is intentionally deferred until repository/content limitations justify it
+- Content CI remains deterministic; semantic truth, provenance truthfulness, overview/navigation quality, and pedagogical quality remain review responsibilities
+- Dedicated web platform remains deferred until repository/content limitations justify it
 - Repository documentation is the durable project memory for human and AI contributors
 
 ## Repository source-of-truth model
@@ -50,6 +50,7 @@ Important locations:
 - `docs/project/` — stable project concepts and taxonomy
 - `docs/planning/` — MVP and roadmap
 - `docs/decisions/` — durable decisions and rationale
+- `docs/reviews/` — evidence-based project/model reviews
 - `docs/context/` — current state, assumptions, and unresolved context
 - GitHub Issues — executable units of work
 - Git history — implementation/change history
@@ -61,25 +62,34 @@ Important locations:
 3. Programming → Databases → Unsafe Database Migration
 4. Programming → Security → Broken Authorization
 
-Together, these slices have exercised the same repository/content architecture across concurrency, distributed/API behavior, database operations, and application security without requiring domain-specific schema expansion.
+Together, these slices exercised the same architecture across concurrency, distributed/API behavior, database operations, and application security without requiring domain-specific schema expansion.
+
+## First content-model review
+
+The first review is recorded in `docs/reviews/mvp-content-model-review.md`.
+
+Key conclusion: **keep the MVP content architecture as-is.**
+
+Validated decisions include the four-level hierarchy, required overview chain, flexible overview prose, scenario learning journey, multiple scenarios per Topic, minimal metadata, manual navigation at current scale, deterministic Content CI, the AI operating contract, and repository-first delivery.
+
+Observed friction that needs external evidence rather than immediate architecture changes includes `concepts` vocabulary drift, Topic-versus-Scenario classification for newcomers, and the human contribution workflow.
 
 ## Current priorities
 
-1. Review the content model after four materially different vertical slices and capture concrete friction, repeated patterns, or missing capabilities before changing the schema.
-2. Decide the next MVP milestone based on that review rather than adding another seed topic by default.
-3. Refine validator strictness only when existing content or contribution workflows expose a concrete need.
-4. Choose a license appropriate for a repository centered on contributed written content plus supporting code/tooling.
-5. Prepare the repository for broader sharing and external contribution without weakening the repository-first, reviewed-source-of-truth model.
+1. Resolve the repository licensing model before actively encouraging broader reuse and contribution.
+2. Prepare the repository contribution/governance baseline for public participation without adding unnecessary process.
+3. Run a small external-contribution pilot and capture concrete contributor friction as the next evidence source.
+4. Refine taxonomy, validator, navigation, or authoring guidance only when that evidence demonstrates a recurring need.
+5. Revisit the content model only after meaningful new evidence accumulates rather than after an arbitrary number of additional Topics.
 
 ## Known open questions
 
 - Which license model best fits contributed written content and future supporting software/tooling?
 - How should real experiences be anonymized without removing useful context?
-- When does a scenario deserve its own topic versus belonging under an existing topic?
-- Which metadata additions, if any, become justified after real contributions exist?
-- How strict should Markdown section validation become after more seed scenarios exercise the learning model?
-- When, if ever, should manually maintained overview child navigation become generated navigation?
+- When does a scenario deserve its own Topic versus belonging under an existing Topic, especially for independent contributors?
+- Will `concepts` remain coherent as multiple contributors introduce vocabulary?
 - What contribution, review, or repository-governance friction becomes visible once people outside the initial maintainer workflow begin contributing?
+- When does repository content volume create enough navigation/discovery pressure to justify generated tooling or a dedicated interface?
 
 ## Recent durable decisions
 
@@ -87,6 +97,7 @@ Together, these slices have exercised the same repository/content architecture a
 - ADR 0002 — topic/scenario content model
 - ADR 0003 — minimal YAML front matter for scenario metadata
 - ADR 0004 — hierarchical overview pages for instantiated Domain, Area, and Topic nodes
+- MVP content-model review — no architecture change justified after the first four vertical slices
 
 ## Maintenance rule
 
