@@ -77,6 +77,59 @@ def validate_kebab(value: Any, field: str) -> list[str]:
     return []
 
 
+def scenario_relative_parts(path: Path) -> tuple[str, ...] | None:
+    try:
+        return path.resolve().relative_to(EXPERIENCES_ROOT.resolve()).parts
+    except ValueError:
+        return None
+
+
+def validate_path_matches_metadata(data: dict[str, Any], path: Path) -> list[str]:
+    """Expected scenario path: experiences/<domain>/<area>/<topic>/scenarios/<file>.md."""
+    parts = scenario_relative_parts(path)
+    if parts is None:
+        return []
+
+    if len(parts) != 5 or parts[3] != "scenarios" or path.suffix.lower() != ".md":
+        return [
+            "scenario file must live at experiences/<domain>/<area>/<topic>/scenarios/<name>.md"
+        ]
+
+    errors: list[str] = []
+    expected_domain, expected_area, expected_topic = parts[0], parts[1], parts[2]
+    if data.get("domain") != expected_domain:
+        errors.append(f"domain metadata must match path value '{expected_domain}'")
+    if data.get("area") != expected_area:
+        errors.append(f"area metadata must match path value '{expected_area}'")
+    if data.get("topic") != expected_topic:
+        errors.append(f"topic metadata must match path value '{expected_topic}'")
+    return errors
+
+
+def validate_overview_chain(path: Path) -> list[str]:
+    """Require README.md at Domain, Area, and Topic for real repository scenarios."""
+    parts = scenario_relative_parts(path)
+    if parts is None:
+        return []
+    if len(parts) != 5 or parts[3] != "scenarios":
+        return []
+
+    domain, area, topic = parts[0], parts[1], parts[2]
+    required = [
+        ("domain", EXPERIENCES_ROOT / domain / "README.md"),
+        ("area", EXPERIENCES_ROOT / domain / area / "README.md"),
+        ("topic", EXPERIENCES_ROOT / domain / area / topic / "README.md"),
+    ]
+
+    errors: list[str] = []
+    for level, overview in required:
+        if not overview.is_file():
+            errors.append(
+                f"missing required {level} overview: {overview.relative_to(ROOT).as_posix()}"
+            )
+    return errors
+
+
 def validate_metadata(data: dict[str, Any], path: Path) -> list[str]:
     errors: list[str] = []
 
@@ -138,31 +191,7 @@ def validate_metadata(data: dict[str, Any], path: Path) -> list[str]:
             errors.append("contributor.github must be a non-empty string when provided")
 
     errors.extend(validate_path_matches_metadata(data, path))
-    return errors
-
-
-def validate_path_matches_metadata(data: dict[str, Any], path: Path) -> list[str]:
-    """Expected scenario path: experiences/<domain>/<area>/<topic>/scenarios/<file>.md."""
-    errors: list[str] = []
-    try:
-        rel = path.resolve().relative_to(EXPERIENCES_ROOT.resolve())
-    except ValueError:
-        return errors
-
-    parts = rel.parts
-    if len(parts) != 5 or parts[3] != "scenarios" or path.suffix.lower() != ".md":
-        return [
-            "scenario file must live at experiences/<domain>/<area>/<topic>/scenarios/<name>.md"
-        ]
-
-    expected_domain, expected_area, expected_topic = parts[0], parts[1], parts[2]
-    if data.get("domain") != expected_domain:
-        errors.append(f"domain metadata must match path value '{expected_domain}'")
-    if data.get("area") != expected_area:
-        errors.append(f"area metadata must match path value '{expected_area}'")
-    if data.get("topic") != expected_topic:
-        errors.append(f"topic metadata must match path value '{expected_topic}'")
-
+    errors.extend(validate_overview_chain(path))
     return errors
 
 
@@ -185,9 +214,18 @@ def validate_file(path: Path) -> list[str]:
 
 
 def discover_scenarios(root: Path) -> list[Path]:
+    """Discover Markdown files placed anywhere below a scenarios directory.
+
+    Broad discovery is intentional: malformed hierarchy paths must be discovered so
+    path validation can reject them rather than silently skipping them.
+    """
     if not root.exists():
         return []
-    return sorted(root.glob("*/*/*/scenarios/*.md"))
+    return sorted(
+        path
+        for path in root.rglob("*.md")
+        if "scenarios" in path.relative_to(root).parts
+    )
 
 
 def run(paths: list[Path]) -> int:
