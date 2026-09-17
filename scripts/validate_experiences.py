@@ -31,6 +31,7 @@ ALLOWED_AREAS = {
     "concurrency",
     "databases",
     "api-and-integration",
+    "caching",
     "distributed-systems",
     "production-and-reliability",
     "security",

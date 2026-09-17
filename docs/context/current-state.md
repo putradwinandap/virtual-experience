@@ -1,6 +1,6 @@
 # Current State
 
-Last updated: 2026-09-11
+Last updated: 2026-09-17
 
 ## Status
 
@@ -109,7 +109,7 @@ Third-party material is not automatically relicensed, and copyright/license attr
 
 The contributor journey distinguishes small direct-PR corrections, new experience proposals, normal tooling/documentation work, and project-level proposals. Focused GitHub Issue forms and a PR checklist support those paths without requiring an Issue for every edit.
 
-The desired `main` protection contract is documented: PR-first collaboration, no force pushes/deletion, and review/check requirements proportional to the maintainer model. The current Content CI must not be globally required while it remains path-filtered because valid documentation-only PRs can have no run. No repository ruleset was present when this baseline was reviewed; branch-protection details could not be read through the connected GitHub integration, so operational protection remains a separate repository-setting task.
+The desired `main` protection contract is documented: PR-first collaboration, no force pushes/deletion, and review/check requirements proportional to the maintainer model. The current Content CI is not globally required while it remains path-filtered because valid documentation-only PRs can have no run. GitHub branch protection is now configured on `main`: changes require a pull request, approval minimum is currently zero while the project has a solo maintainer, administrators are subject to the rule, force pushes and branch deletion are disabled, and conversation resolution is required. The approval threshold should increase when the maintainer/reviewer model supports it.
 
 A formal Code of Conduct is deferred for now. The project should prefer a recognized standard such as Contributor Covenant when it can also provide a real reporting path and enforcement owner rather than publishing unresolved placeholders.
 
@@ -118,7 +118,7 @@ A formal Code of Conduct is deferred for now. The project should prefer a recogn
 1. Run a small external-contribution pilot using the new contribution/governance entry points.
 2. Capture concrete contributor friction: discovery, Topic-versus-Scenario placement, provenance/privacy, `concepts`, validation, review, licensing, and GitHub workflow.
 3. Refine taxonomy, validator, navigation, licensing guidance, governance, or authoring guidance only when pilot evidence demonstrates a recurring need.
-4. Configure/verify operational `main` branch protection separately against the documented collaboration contract.
+4. Keep operational `main` branch protection aligned with the documented collaboration contract as the maintainer model evolves.
 5. Revisit the content model only after meaningful new evidence accumulates.
 
 ## Known open questions
