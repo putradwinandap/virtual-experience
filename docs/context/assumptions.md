@@ -32,14 +32,17 @@ AI can assist with editing, organization, review, scenario construction, and rep
 
 ## Open design questions
 
-- What scenario metadata is mandatory?
-- Do we use YAML front matter or human-readable Markdown metadata?
+- How should real experiences be anonymized without removing useful context?
+- When does a scenario deserve its own Topic versus belonging under an existing Topic?
+- Will `concepts` remain coherent as multiple contributors introduce vocabulary?
+- What contribution, review, repository-governance, or licensing friction becomes visible during the external-contribution pilot?
 - Should scenarios reveal the solution immediately or support a progressive learning format later?
 - How should we identify related concepts without creating taxonomy duplication?
 - How much code should scenarios include?
 - How do we distinguish beginner-friendly simplification from misleading oversimplification?
 - What evidence or review standard should apply to technical claims?
-- What license structure best supports both repository tooling and contributed written experiences?
+- When should a recognized Code of Conduct be adopted, and what reporting/enforcement path should support it?
+- When does repository content volume create enough navigation/discovery pressure to justify generated tooling or a dedicated interface?
 
 ## Rule for AI agents
 

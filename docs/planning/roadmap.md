@@ -28,6 +28,7 @@ Completed seed Topics:
 - payment retry / idempotency
 - unsafe database migration
 - broken authorization
+- cache invalidation
 
 The seed set includes multiple materially different scenarios under Topics and exercises the accepted model across concurrency, API/integration behavior, databases, and security.
 

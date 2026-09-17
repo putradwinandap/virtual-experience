@@ -20,6 +20,7 @@ Initial canonical `area` values are:
 concurrency
 databases
 api-and-integration
+caching
 distributed-systems
 production-and-reliability
 security
@@ -40,6 +41,7 @@ programming/
 ├── concurrency/
 ├── databases/
 ├── api-and-integration/
+├── caching/
 ├── distributed-systems/
 ├── production-and-reliability/
 ├── security/
@@ -72,6 +74,11 @@ These areas are intentionally broad. We should add or split them when actual con
 - idempotency
 - third-party-timeout
 - webhook-duplication
+
+### Caching
+
+- cache-invalidation
+- cache-stampede
 
 ### Distributed systems
 
