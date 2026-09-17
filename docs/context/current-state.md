@@ -79,6 +79,7 @@ Important locations:
 5. Programming → Caching → Cache Invalidation
 6. Programming → Observability → Distributed Tracing Gaps
 7. Programming → Testing → Flaky Test
+8. Programming → Architecture & Design → Hidden Coupling
 
 The first four slices exercised the architecture across concurrency, distributed/API behavior, database operations, and application security and provided the evidence used for the first content-model review. The fifth slice extended that coverage into cached-state consistency and was implemented without requiring domain-specific schema or hierarchy expansion.
 

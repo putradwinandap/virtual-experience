@@ -13,5 +13,6 @@ The experiences in this domain focus on recognizing failure patterns, investigat
 - [Caching](caching/) — problems caused by copied or derived state becoming stale, inconsistent, or incorrectly coordinated with its source of truth.
 - [Observability](observability/) — problems where incomplete or misleading telemetry makes system behavior difficult to reconstruct and diagnose.
 - [Testing](testing/) — problems where tests provide misleading confidence or fail for reasons unrelated to the behavior under test.
+- [Architecture & Design](architecture-and-design/) — problems where system boundaries, abstractions, or dependencies make change harder and riskier than expected.
 
 This list reflects the areas currently instantiated in the repository, not the full scope of software engineering.
