@@ -77,6 +77,7 @@ Important locations:
 3. Programming → Databases → Unsafe Database Migration
 4. Programming → Security → Broken Authorization
 5. Programming → Caching → Cache Invalidation
+6. Programming → Observability → Distributed Tracing Gaps
 
 The first four slices exercised the architecture across concurrency, distributed/API behavior, database operations, and application security and provided the evidence used for the first content-model review. The fifth slice extended that coverage into cached-state consistency and was implemented without requiring domain-specific schema or hierarchy expansion.
 

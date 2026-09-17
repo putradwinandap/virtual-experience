@@ -21,6 +21,7 @@ concurrency
 databases
 api-and-integration
 caching
+observability
 distributed-systems
 production-and-reliability
 security
@@ -42,6 +43,7 @@ programming/
 ├── databases/
 ├── api-and-integration/
 ├── caching/
+├── observability/
 ├── distributed-systems/
 ├── production-and-reliability/
 ├── security/
@@ -79,6 +81,10 @@ These areas are intentionally broad. We should add or split them when actual con
 
 - cache-invalidation
 - cache-stampede
+
+### Observability
+
+- distributed-tracing-gaps
 
 ### Distributed systems
 
