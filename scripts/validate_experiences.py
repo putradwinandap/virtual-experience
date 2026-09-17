@@ -32,6 +32,7 @@ ALLOWED_AREAS = {
     "databases",
     "api-and-integration",
     "caching",
+    "observability",
     "distributed-systems",
     "production-and-reliability",
     "security",
