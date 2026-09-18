@@ -15,4 +15,9 @@ The experiences in this domain focus on recognizing failure patterns, investigat
 - [Testing](testing/) — problems where tests provide misleading confidence or fail for reasons unrelated to the behavior under test.
 - [Architecture & Design](architecture-and-design/) — problems where system boundaries, abstractions, or dependencies make change harder and riskier than expected.
 
+- [Distributed Systems](distributed-systems/)
+- [Production & Reliability](production-and-reliability/)
+- [Git & Collaboration](git-and-collaboration/)
+- [Performance](performance/)
+
 This list reflects the areas currently instantiated in the repository, not the full scope of software engineering.
