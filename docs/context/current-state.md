@@ -1,8 +1,10 @@
 # Current State
 
-Last updated: 2026-09-17
+Last updated: 2026-09-18
 
 ## Status
+
+The initial taxonomy example topics now each have at least one illustrative scenario. The repository contains 38 validated scenario files across the instantiated programming areas. This expands coverage for the next review; it does not imply that every topic is complete or that the taxonomy is closed to evidence-based additions.
 
 Virtual Experience has completed its initial repository/content foundation and is entering **Phase 2 — Community readiness**.
 
